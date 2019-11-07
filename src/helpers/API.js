@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:3000/'
-const signInUrl = baseUrl + '/signin'
-const validateUrl = baseUrl + '/validate'
-const allSkillsUrl = baseUrl + '/skills'
+const signInUrl = baseUrl + 'signin'
+const validateUrl = baseUrl + 'validate'
+const allSkillsUrl = baseUrl + 'skills'
 
 class API {
     static signIn = (username, password) => this.post(signInUrl, { username, password })
@@ -11,7 +11,7 @@ class API {
 
     static getAllSkills = () => this.get(allSkillsUrl)
 
-    static get = (url) => 
+    static get = (url) =>
         fetch(url, {
             headers: {
                 Authorization: localStorage.getItem('token')
