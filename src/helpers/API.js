@@ -3,17 +3,17 @@ const signInUrl = baseUrl + '/signin'
 const validateUrl = baseUrl + '/validate'
 
 class API {
-    static signIn = (username, password) => this.post(signInUrl, {username, password})
-    
+    static signIn = (username, password) => this.post(signInUrl, { username, password })
+
     static validates = () => this.get(validateUrl)
 
-    static get = (url) => 
+    static get = (url) =>
         fetch(url, {
             headers: {
                 Authorization: localStorage.getItem('token')
             }
         }).then(resp => resp.json())
-    
+
 
     static post = (url, data) =>
         fetch(url, {
@@ -23,8 +23,8 @@ class API {
             },
             body: JSON.stringify(data)
         }).then(resp => resp.json())
-    
-    
+
+
 }
 
 export default API
