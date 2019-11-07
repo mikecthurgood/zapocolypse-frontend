@@ -4,9 +4,10 @@ const validateUrl = baseUrl + '/validate'
 const allSkillsUrl = baseUrl + '/skills'
 
 class API {
-    static signIn = (username, password) => this.post(signInUrl, {username, password})
-    
+    static signIn = (username, password) => this.post(signInUrl, { username, password })
+
     static validates = () => this.get(validateUrl)
+
 
     static getAllSkills = () => this.get(allSkillsUrl)
 
@@ -16,7 +17,7 @@ class API {
                 Authorization: localStorage.getItem('token')
             }
         }).then(resp => resp.json())
-    
+
 
     static post = (url, data) =>
         fetch(url, {
@@ -26,7 +27,6 @@ class API {
             },
             body: JSON.stringify(data)
         }).then(resp => resp.json())
-    
 }
 
 export default API
