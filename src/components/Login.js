@@ -28,7 +28,6 @@ class LoginForm extends React.Component {
             .then(json => {
                 if (json.error) throw Error(json.error)
                 logIn(json)
-                history.push('/')
             }).catch(error => console.log(error))
 
     }
