@@ -1,17 +1,22 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
+import SkillCard from './SkillCard'
 
 class MySkills extends React.Component {
 
     componentDidMount() {
-        if (!this.props.user) this.props.history.push('/login')
+        if (!localStorage.getItem('token')) this.props.history.push('/login')
     }
 
 
     render() {
         return (
             <div className="skills-button">
-                <Button onClick={this.props.getMySkills}> My Skills </Button>
+                <Card.Group>
+                    {this.props.mySkills.map(skill =>
+                        <SkillCard key={skill.id} {...skill}/>
+                    )}
+                </Card.Group>
             </div>
         )
     }
