@@ -6,17 +6,22 @@ import LoginForm from './components/Login'
 import { Route, withRouter } from 'react-router-dom';
 import API from './helpers/API';
 import Skills from './components/Skills'
+import MySkills from './components/MySkills'
 import CreateAccount from './components/CreateAccount'
 
 
 class App extends React.Component {
 
   state = {
-    user: ""
+    user: "",
+    userSkills: []
   }
 
   logIn = (userData) => {
-    this.setState({ user: userData.username })
+    this.setState({ 
+      user: userData.username,
+      userSkills: userData.userskills
+    })
     localStorage.setItem('token', userData.token)
   }
 
@@ -30,12 +35,14 @@ class App extends React.Component {
     const token = localStorage.getItem('token')
     if (token) {
       API.validates()
-        .then(data => this.logIn(data))
+        .then(data => {
+          if (data.error) throw Error(data.error)
+
+          this.logIn(data)
+        })
         .catch(error => {
           console.log(error)
-          // this.props.history.push('/login')
         })
-
     }
   }
 
@@ -43,6 +50,7 @@ class App extends React.Component {
     API.getAllSkills()
       .then(console.log)
   }
+
 
 
   render() {
@@ -54,6 +62,7 @@ class App extends React.Component {
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
           <Route path="/activities" component={Home} />
           <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
+          <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
           <Route path="/profile" component={Home} />
           <Route path="/my-account" component={Home} />
         </div> :

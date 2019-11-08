@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.user) this.props.history.push('/')
+        if (localStorage.getItem('token')) this.props.history.push('/')
     }
 
     handleChange = e => {

@@ -91,6 +91,7 @@ class CreateAccount extends React.Component {
                             <Form.Input label='Password' type='password' placeholder='Password...' name="password" required={true} value={this.state.password} />
                             <Form.Input label='Password Confirmation' type='password' placeholder='Confirm Password...' name="passwordConf" required={true} onKeyUp={this.checkPasswordsMatch} />
                             <div><p>{this.state.passwordMessage}</p></div>
+
                             <Button type='submit'>Create Account</Button>
                         </Form>
                     </Segment>
