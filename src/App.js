@@ -6,6 +6,7 @@ import LoginForm from './components/Login'
 import { Route, withRouter } from 'react-router-dom';
 import API from './helpers/API';
 import Skills from './components/Skills'
+import MySkills from './components/MySkills'
 import CreateAccount from './components/CreateAccount'
 
 
@@ -44,6 +45,11 @@ class App extends React.Component {
       .then(console.log)
   }
 
+  getMySkills = () => {
+    API.getMySkills()
+      .then(console.log)
+  }
+
 
   render() {
     const { logIn } = this
@@ -54,6 +60,7 @@ class App extends React.Component {
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
           <Route path="/activities" component={Home} />
           <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
+          <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} getMySkills={this.getMySkills} user={this.state.user} />} />
           <Route path="/profile" component={Home} />
           <Route path="/my-account" component={Home} />
           <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />

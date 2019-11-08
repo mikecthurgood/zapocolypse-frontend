@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
         const { username, password } = this.state
-        const { logIn, history } = this.props
+        const { logIn } = this.props
         API.signIn(username, password)
             .then(json => {
                 if (json.error) throw Error(json.error)
