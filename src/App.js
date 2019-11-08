@@ -56,7 +56,7 @@ class App extends React.Component {
   render() {
     const { logIn } = this
     return (
-      <>
+      <div className='main'>
         <NavBar user={this.state.user} logOut={this.logOut} />
         {this.state.user ? <div className="logged-in-pages">
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
@@ -70,7 +70,7 @@ class App extends React.Component {
             <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
             <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
           </div>}
-      </>
+      </div>
     )
   }
 }

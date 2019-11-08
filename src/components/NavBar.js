@@ -42,6 +42,9 @@ const NavBar = (props) =>
                     >My Skills</NavLink>
                 </div>
                 <div className='user-links'>
+                    <span className='user-link'>
+                        0⚡
+                    </span>
                     <NavLink
                         className='user-link'
                         to="/profile"
