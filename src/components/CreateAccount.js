@@ -1,9 +1,10 @@
 import React from 'react'
 import './forms.css';
+
 import { Form, Segment, Button } from 'semantic-ui-react'
 import API from '../helpers/API'
 
-class LoginForm extends React.Component {
+class CreateAccount extends React.Component {
 
     state = {
         username: "",
@@ -11,7 +12,7 @@ class LoginForm extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.user) this.props.history.push('/')
+        if (this.props.user) window.history.push('/')
     }
 
     handleChange = e => {
@@ -35,21 +36,26 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div className="login-page">
-                <h1>Sign In To Prepare For The Zombie Apocolypse</h1>
-                <div className="login-form">
+            <div className="create-account-page">
+                <h1>Create An Account</h1>
+                <h2>Prepare For The Apocolypse.</h2>
+                <div className="create-account-form">
                     <Segment inverted>
                         <Form inverted onChange={this.handleChange} onSubmit={this.handleSubmit} >
                             <Form.Input label='Username' placeholder='Username...' name="username" />
+                            <Form.Input label='Age' placeholder='Age...' name="Age" />
+                            <Form.Input label='Height' placeholder='Height...' name="Height" />
+                            <br />
                             <Form.Input label='Password' type='password' placeholder='Password...' name="password" />
-                            <Button type='submit'>Login</Button>
+                            <Form.Input label='Password Confirmation' type='password confirmation' placeholder='Confirm Password...' name="password" />
+                            <Button type='submit'>Create Account</Button>
                         </Form>
                     </Segment>
                 </div>
-            </div>
+            </div >
         )
     }
 
 }
 
-export default LoginForm
+export default CreateAccount

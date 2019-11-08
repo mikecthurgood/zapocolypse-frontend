@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import LoginForm from './components/Login'
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import API from './helpers/API';
 import Skills from './components/Skills'
-
+import CreateAccount from './components/CreateAccount'
 
 
 class App extends React.Component {
@@ -24,14 +23,20 @@ class App extends React.Component {
   logOut = () => {
     this.setState({ user: "" })
     localStorage.removeItem('token')
+    this.props.history.push('/login')
   }
 
   componentDidMount() {
     const token = localStorage.getItem('token')
-    if (token)
+    if (token) {
       API.validates()
         .then(data => this.logIn(data))
-        .catch(console.log)
+        .catch(error => {
+          console.log(error)
+          // this.props.history.push('/login')
+        })
+
+    }
   }
 
   getSkills = () => {
@@ -46,18 +51,17 @@ class App extends React.Component {
       <>
         <NavBar user={this.state.user} logOut={this.logOut} />
         <div className="main">
-          {/* <Header /> */}
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
           <Route path="/activities" component={Home} />
           <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} />} />
           <Route path="/profile" component={Home} />
           <Route path="/my-account" component={Home} />
-          <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} />} />
-          <Route path="/create-account" component={Home} />
+          <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
+          <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} /> />
         </div>
       </>
     )
   }
 }
 
-export default App;
+export default withRouter(App);

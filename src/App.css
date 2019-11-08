@@ -113,19 +113,9 @@ a {
 
 .main {
   padding-top: 60px;
+  padding-left: 20px;
   height: 100vh;
   background-color: #1b1c1d;
+  width: 100vw;
 
-}
-
-.login-form {
-  display: flex;
-  justify-content: center;
-  text-align: left;
-}
-
-.login-page {
-  padding-top: 1rem;
-  color: white;
-  text-align: center;
 }
