@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   logIn = (userData) => {
-    this.setState({ 
+    this.setState({
       user: userData.username,
       userSkills: userData.userskills
     })
@@ -37,11 +37,11 @@ class App extends React.Component {
       API.validates()
         .then(data => {
           if (data.error) throw Error(data.error)
-
           this.logIn(data)
         })
         .catch(error => {
           console.log(error)
+          localStorage.removeItem('token')
         })
     }
   }
