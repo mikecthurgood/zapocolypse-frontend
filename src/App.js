@@ -50,15 +50,17 @@ class App extends React.Component {
     return (
       <>
         <NavBar user={this.state.user} logOut={this.logOut} />
-        <div className="main">
+        {this.state.user ? <div className="logged-in-pages">
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
           <Route path="/activities" component={Home} />
           <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/profile" component={Home} />
           <Route path="/my-account" component={Home} />
-          <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
-          <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} /> />
-        </div>
+        </div> :
+          <div className="login-pages">
+            <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
+            <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
+          </div>}
       </>
     )
   }

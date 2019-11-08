@@ -2,14 +2,16 @@ const baseUrl = 'http://localhost:3000/'
 const signInUrl = baseUrl + 'signin'
 const validateUrl = baseUrl + 'validate'
 const allSkillsUrl = baseUrl + 'skills'
+const createUserUrl = baseUrl + 'create-user'
 
 class API {
     static signIn = (username, password) => this.post(signInUrl, { username, password })
 
     static validates = () => this.get(validateUrl)
 
-
     static getAllSkills = () => this.get(allSkillsUrl)
+
+    static createUser = (user) => this.post(createUserUrl, user)
 
     static get = (url) =>
         fetch(url, {

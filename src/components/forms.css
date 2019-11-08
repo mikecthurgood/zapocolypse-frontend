@@ -1,4 +1,15 @@
 
+.login-pages {
+        padding-top: 60px;
+        padding-left: 20px;
+        height: 100vh;
+        background-color: #1b1c1d;
+        width: 100vw;
+        background-image: url('../Assets/apocalypse-1400x788.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+}
+
 .login-form {
     display: flex;
     justify-content: center;
@@ -10,6 +21,5 @@
     color: white;
     text-align: center;
     height: 100%;
-    background-image: url('../Assets/apocalypse-1400x788.jpg');
-    background-size: 100%;
+    
   }
