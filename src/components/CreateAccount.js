@@ -42,12 +42,12 @@ class CreateAccount extends React.Component {
                 <div className="login-form">
                     <Segment inverted>
                         <Form inverted onChange={this.handleChange} onSubmit={this.handleSubmit} >
-                            <Form.Input label='Username' placeholder='Username...' name="username" required='true' />
+                            <Form.Input label='Username' placeholder='Username...' name="username" required={true} />
                             <Form.Input label='Age (optional)' placeholder='Age...' name="Age" />
                             <Form.Input label='Height (optional)' placeholder='Height...' name="Height" />
                             <br />
-                            <Form.Input label='Password' type='password' placeholder='Password...' name="password" required='true' />
-                            <Form.Input label='Password Confirmation' type='password confirmation' placeholder='Confirm Password...' name="password" required='true' />
+                            <Form.Input label='Password' type='password' placeholder='Password...' name="password" required={true} />
+                            <Form.Input label='Password Confirmation' type='password confirmation' placeholder='Confirm Password...' name="password" required={true} />
                             <Button type='submit'>Create Account</Button>
                         </Form>
                     </Segment>
