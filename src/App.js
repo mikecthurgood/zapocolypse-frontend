@@ -6,6 +6,7 @@ import LoginForm from './components/Login'
 import { Route, withRouter } from 'react-router-dom';
 import API from './helpers/API';
 import Skills from './components/Skills'
+import Activities from './components/Activities'
 import MySkills from './components/MySkills'
 import CreateAccount from './components/CreateAccount'
 
@@ -55,6 +56,11 @@ class App extends React.Component {
       .then(console.log)
   }
 
+  getActivities = () => {
+    API.getAllActivities()
+      .then(console.log)
+  }
+
 
   totalZaps = () => {
     return Object.values(this.state.userSkillZaps).reduce((a,b) => a+b , 0)
@@ -67,7 +73,7 @@ class App extends React.Component {
         <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} />
         {this.state.user ? <div className="logged-in-pages">
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
-          <Route path="/activities" component={Home} />
+          <Route path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} />} />
           <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
           <Route path="/profile" component={Home} />
