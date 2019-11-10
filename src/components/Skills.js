@@ -31,7 +31,8 @@ class Skills extends React.Component {
             <div className="skill-cards">
                 <Card.Group>
                     {this.state.allSkills.map(skill =>
-                        <SkillCard key={skill.id} {...skill} />
+                        // console.log(skill)
+                        < SkillCard key={skill.id} {...skill} />
                     )}
                 </Card.Group>
             </div>

@@ -1,12 +1,12 @@
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
 
-const SkillCard = ({ name, description, skill_type }) => {
+const SkillCard = ({ name, description, skill_type, image_url }) => {
   return (
     <div className="skill-card">
       <Card>
         <Image
-          src="https://react.semantic-ui.com/images/wireframe/image.png"
+          src={require(`../Assets/${image_url}`)}
           size='small'
           wrapped
           ui={false}
@@ -21,8 +21,8 @@ const SkillCard = ({ name, description, skill_type }) => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-            <Icon name="smile" />
-            skill
+          <Icon name="smile" />
+          skill
         </Card.Content>
       </Card>
     </div>

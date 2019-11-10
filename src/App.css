@@ -152,3 +152,9 @@ div.ui {
 div.cards {
   height: 100%;
 }
+
+.home-page-data {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

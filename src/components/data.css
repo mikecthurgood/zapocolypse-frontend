@@ -4,10 +4,12 @@
 .axis{stroke:#555;stroke-width:.2}
 .dot{fill:#fff;stroke:#e7e8e7;r:5;-webkit-transition:r .2s;-o-transition:r .2s;transition:r .2s}
 /* .dot:hover{stroke:#bbb;r:8} */
-.caption{fill:#444;font-weight:400;text-shadow:1px 1px 0 #fff}
+.caption{fill:#444;font-weight:400;text-shadow:1px 1px 0 #fff; font-size: 1.5rem}
 /*# sourceMappingURL=index.css.map*/
 .chart {
     background-color: none;
     opacity: 70%;
-    width: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
