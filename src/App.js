@@ -15,14 +15,16 @@ class App extends React.Component {
   state = {
     user: "",
     userSkills: [],
-    userActivities: []
+    userActivities: [],
+    userSkillZaps: []
   }
 
   logIn = (userData) => {
     this.setState({
       user: userData.username,
       userSkills: userData.userSkills,
-      userActivities: userData.userActivities
+      userActivities: userData.userActivities,
+      userSkillZaps: userData.userSkillZaps
     })
     localStorage.setItem('token', userData.token)
   }
