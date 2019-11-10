@@ -28,6 +28,7 @@ class LoginForm extends React.Component {
             .then(json => {
                 if (json.error) throw Error(json.error)
                 logIn(json)
+                if (localStorage.getItem('token')) this.props.history.push('/')
             }).catch(error => console.log(error))
 
     }

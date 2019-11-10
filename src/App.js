@@ -10,7 +10,6 @@ import Activities from './components/Activities'
 import MySkills from './components/MySkills'
 import MyActivities from './components/MyActivities'
 import CreateAccount from './components/CreateAccount'
-import { ParallaxProvider } from 'react-scroll-parallax';
 
 
 class App extends React.Component {
@@ -27,7 +26,7 @@ class App extends React.Component {
       user: userData.username,
       userSkills: userData.userSkills,
       userActivities: userData.userActivities,
-      userSkillZaps: userData.userSkillZaps
+      userSkillZaps: userData.userSkillZaps,
     })
     localStorage.setItem('token', userData.token)
   }
@@ -65,13 +64,12 @@ class App extends React.Component {
 
 
   totalZaps = () => {
-    return Object.values(this.state.userSkillZaps).reduce((a,b) => a+b , 0)
+    return Object.values(this.state.userSkillZaps).reduce((a, b) => a + b, 0)
   }
 
   render() {
     const { logIn } = this
     return (
-      <ParallaxProvider>
       <div className='main'>
         <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} />
         {this.state.user ? <div className="logged-in-pages">
@@ -88,7 +86,6 @@ class App extends React.Component {
             <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
           </div>}
       </div>
-     </ParallaxProvider>
     )
   }
 }
