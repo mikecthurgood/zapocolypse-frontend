@@ -8,6 +8,7 @@ import API from './helpers/API';
 import Skills from './components/Skills'
 import MySkills from './components/MySkills'
 import CreateAccount from './components/CreateAccount'
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 
 class App extends React.Component {
@@ -60,21 +61,23 @@ class App extends React.Component {
   render() {
     const { logIn } = this
     return (
-      <div className='main'>
-        <NavBar user={this.state.user} logOut={this.logOut} />
-        {this.state.user ? <div className="logged-in-pages">
-          <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
-          <Route path="/activities" component={Home} />
-          <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
-          <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
-          <Route path="/profile" component={Home} />
-          <Route path="/my-account" component={Home} />
-        </div> :
-          <div className="login-pages">
-            <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
-            <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
-          </div>}
-      </div>
+      <ParallaxProvider>
+        <div className='main'>
+          <NavBar user={this.state.user} logOut={this.logOut} />
+          {this.state.user ? <div className="logged-in-pages">
+            <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
+            <Route path="/activities" component={Home} />
+            <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
+            <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
+            <Route path="/profile" component={Home} />
+            <Route path="/my-account" component={Home} />
+          </div> :
+            <div className="login-pages">
+              <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
+              <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
+            </div>}
+        </div>
+      </ParallaxProvider>
     )
   }
 }

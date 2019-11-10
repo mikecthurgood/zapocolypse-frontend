@@ -15,7 +15,7 @@ class Skills extends React.Component {
         API.getAllSkills()
             .then(data => {
                 if (data.error) throw Error(data.error)
-    
+
                 this.setState({
                     allSkills: data
                 })
@@ -28,14 +28,14 @@ class Skills extends React.Component {
 
     render() {
         return (
-            <div className="skills-button">
+            <div className="skill-cards">
                 <Card.Group>
                     {this.state.allSkills.map(skill =>
-                        <SkillCard key={skill.id} {...skill}/>
+                        <SkillCard key={skill.id} {...skill} />
                     )}
                 </Card.Group>
-                {/* <Button onClick={this.props.getSkills}> Skills </Button> */}
             </div>
+
         )
     }
 }

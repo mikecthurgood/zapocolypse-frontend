@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
 
-const SkillCard = ({name, description, skill_type}) => {
+const SkillCard = ({ name, description, skill_type }) => {
   return (
     <div className="skill-card">
       <Card>
