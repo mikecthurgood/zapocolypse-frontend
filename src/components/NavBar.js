@@ -23,7 +23,7 @@ const NavBar = (props) =>
                         activeStyle={{
                             color: 'gold'
                         }}
-                    >Activities</NavLink>
+                    >All Activities</NavLink>
                     <NavLink
                         className='link'
                         to="/skills"
