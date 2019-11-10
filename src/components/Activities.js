@@ -15,7 +15,7 @@ class Activities extends React.Component {
         API.getAllActivities()
             .then(data => {
                 if (data.error) throw Error(data.error)
-    
+
                 this.setState({
                     allActivities: data
                 })
@@ -28,10 +28,10 @@ class Activities extends React.Component {
 
     render() {
         return (
-            <div className="activities-button">
+            <div className="activities">
                 <Card.Group>
                     {this.state.allActivities.map(activity =>
-                        <ActivityCard key={activity.id} {...activity}/>
+                        <ActivityCard key={activity.id} {...activity} />
                     )}
                 </Card.Group>
             </div>
