@@ -23,7 +23,7 @@ const NavBar = (props) =>
                         activeStyle={{
                             color: 'gold'
                         }}
-                    >Activities</NavLink>
+                    >All Activities</NavLink>
                     <NavLink
                         className='link'
                         to="/skills"
@@ -40,10 +40,18 @@ const NavBar = (props) =>
                             color: 'gold'
                         }}
                     >My Skills</NavLink>
+                    <NavLink
+                        className='link'
+                        to="/myactivities"
+                        exact
+                        activeStyle={{
+                            color: 'gold'
+                        }}
+                    >My Activities</NavLink>
                 </div>
                 <div className='user-links'>
                     <span className='user-link'>
-                        0⚡
+                        {props.totalZaps}⚡
                     </span>
                     <NavLink
                         className='user-link'

@@ -6,7 +6,9 @@ import LoginForm from './components/Login'
 import { Route, withRouter } from 'react-router-dom';
 import API from './helpers/API';
 import Skills from './components/Skills'
+import Activities from './components/Activities'
 import MySkills from './components/MySkills'
+import MyActivities from './components/MyActivities'
 import CreateAccount from './components/CreateAccount'
 import { ParallaxProvider } from 'react-scroll-parallax';
 
@@ -56,28 +58,37 @@ class App extends React.Component {
       .then(console.log)
   }
 
+  getActivities = () => {
+    API.getAllActivities()
+      .then(console.log)
+  }
 
+
+  totalZaps = () => {
+    return Object.values(this.state.userSkillZaps).reduce((a,b) => a+b , 0)
+  }
 
   render() {
     const { logIn } = this
     return (
       <ParallaxProvider>
-        <div className='main'>
-          <NavBar user={this.state.user} logOut={this.logOut} />
-          {this.state.user ? <div className="logged-in-pages">
-            <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
-            <Route path="/activities" component={Home} />
-            <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
-            <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
-            <Route path="/profile" component={Home} />
-            <Route path="/my-account" component={Home} />
-          </div> :
-            <div className="login-pages">
-              <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
-              <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
-            </div>}
-        </div>
-      </ParallaxProvider>
+      <div className='main'>
+        <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} />
+        {this.state.user ? <div className="logged-in-pages">
+          <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
+          <Route path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} />} />
+          <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
+          <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
+          <Route path="/myactivities" component={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
+          <Route path="/profile" component={Home} />
+          <Route path="/my-account" component={Home} />
+        </div> :
+          <div className="login-pages">
+            <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
+            <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
+          </div>}
+      </div>
+     </ParallaxProvider>
     )
   }
 }
