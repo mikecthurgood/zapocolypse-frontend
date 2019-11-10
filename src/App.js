@@ -10,6 +10,7 @@ import Activities from './components/Activities'
 import MySkills from './components/MySkills'
 import MyActivities from './components/MyActivities'
 import CreateAccount from './components/CreateAccount'
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 
 class App extends React.Component {
@@ -70,6 +71,7 @@ class App extends React.Component {
   render() {
     const { logIn } = this
     return (
+      <ParallaxProvider>
       <div className='main'>
         <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} />
         {this.state.user ? <div className="logged-in-pages">
@@ -86,6 +88,7 @@ class App extends React.Component {
             <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
           </div>}
       </div>
+     </ParallaxProvider>
     )
   }
 }
