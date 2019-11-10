@@ -36,9 +36,9 @@ class CreateAccount extends React.Component {
         e.preventDefault()
         const { username, password, passwordConf, location, age, height, occupation } = this.state
         const { logIn, history } = this.props
-        const newUser = {
-            username, password, passwordConf, location, age, height, occupation,
-        }
+        const newUser = {user: {
+            username, password, password_confirmation: passwordConf, living_in: location, age, height, occupation,
+        }}
 
         if (password !== passwordConf) return
 
