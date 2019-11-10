@@ -21,10 +21,8 @@ const SkillCard = ({ name, description, skill_type }) => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
             <Icon name="smile" />
             skill
-          </a>
         </Card.Content>
       </Card>
     </div>

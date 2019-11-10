@@ -21,10 +21,8 @@ const ActivityCard = ({name, description, activity_type}) => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
             <Icon name="smile" />
             activity
-          </a>
         </Card.Content>
       </Card>
     </div>
