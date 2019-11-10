@@ -56,12 +56,15 @@ class App extends React.Component {
   }
 
 
+  totalZaps = () => {
+    return Object.values(this.state.userSkillZaps).reduce((a,b) => a+b , 0)
+  }
 
   render() {
     const { logIn } = this
     return (
       <div className='main'>
-        <NavBar user={this.state.user} logOut={this.logOut} />
+        <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} />
         {this.state.user ? <div className="logged-in-pages">
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
           <Route path="/activities" component={Home} />

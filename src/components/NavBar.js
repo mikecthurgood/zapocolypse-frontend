@@ -43,7 +43,7 @@ const NavBar = (props) =>
                 </div>
                 <div className='user-links'>
                     <span className='user-link'>
-                        0⚡
+                        {props.totalZaps}⚡
                     </span>
                     <NavLink
                         className='user-link'
