@@ -1,8 +1,8 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
-import SkillCard from './SkillCard'
+import ActivityCard from './ActivityCard'
 
-class MySkills extends React.Component {
+class MyActivities extends React.Component {
 
     componentDidMount() {
         if (!localStorage.getItem('token')) this.props.history.push('/login')
@@ -13,8 +13,8 @@ class MySkills extends React.Component {
         return (
             <div className="">
                 <Card.Group>
-                    {this.props.mySkills.map(skill =>
-                        <SkillCard key={skill.id} {...skill}/>
+                    {this.props.myActivities.map(activity =>
+                        <ActivityCard key={activity.id} {...activity}/>
                     )}
                 </Card.Group>
             </div>
@@ -22,4 +22,4 @@ class MySkills extends React.Component {
     }
 }
 
-export default MySkills
+export default MyActivities

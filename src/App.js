@@ -8,6 +8,7 @@ import API from './helpers/API';
 import Skills from './components/Skills'
 import Activities from './components/Activities'
 import MySkills from './components/MySkills'
+import MyActivities from './components/MyActivities'
 import CreateAccount from './components/CreateAccount'
 
 
@@ -76,6 +77,7 @@ class App extends React.Component {
           <Route path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} />} />
           <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
+          <Route path="/myactivities" component={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
           <Route path="/profile" component={Home} />
           <Route path="/my-account" component={Home} />
         </div> :
