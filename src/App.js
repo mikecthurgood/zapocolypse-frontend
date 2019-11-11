@@ -21,14 +21,15 @@ class App extends React.Component {
     userSkillZaps: []
   }
 
-  logIn = (userData) => {
+  logIn = ({token, user}) => {
+
     this.setState({
-      user: userData.username,
-      userSkills: userData.userSkills,
-      userActivities: userData.userActivities,
-      userSkillZaps: userData.userSkillZaps,
+      user: user.username,
+      userSkills: user.skills,
+      userActivities: user.activities,
+      userSkillZaps: user.skillZaps,
     })
-    localStorage.setItem('token', userData.token)
+    localStorage.setItem('token', token)
   }
 
   logOut = () => {
