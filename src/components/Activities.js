@@ -31,7 +31,8 @@ class Activities extends React.Component {
             <div className="activities">
                 <Card.Group>
                     {this.state.allActivities.map(activity =>
-                        <ActivityCard key={activity.id} {...activity} />
+                        // console.log(activity)
+                        < ActivityCard key={activity.id} {...activity} />
                     )}
                 </Card.Group>
             </div>

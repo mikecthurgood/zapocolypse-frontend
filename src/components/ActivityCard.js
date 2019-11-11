@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
 
-const ActivityCard = ({name, description, activity_type}) => {
+const ActivityCard = ({ name, description, activity_type, skills }) => {
   return (
     <div className="skill-card">
       <Card>
@@ -21,8 +21,8 @@ const ActivityCard = ({name, description, activity_type}) => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-            <Icon name="smile" />
-            activity
+
+          {skills.map(skill => <span><Icon name="smile" />{skill.name} </span>)}
         </Card.Content>
       </Card>
     </div>
