@@ -36,19 +36,17 @@ class App extends React.Component {
     this.setState({ userMenuVisible: !this.state.userMenuVisible, menuVisible: false })
   }
 
+
   hideMenu = () => {
     (this.state.menuVisible || this.state.userMenuVisible) && this.setState({ menuVisible: false, userMenuVisible: false })
   }
 
-
-
-  logIn = ({ token, user }) => {
-
+  logIn = ({user, token, skillZaps, userSkills}) => {
     this.setState({
       user: user.username,
-      userSkills: user.skills,
-      userActivities: user.activities,
-      userSkillZaps: user.skillZaps,
+      userSkills: userSkills,
+      userActivities: user.user_activities,
+      userSkillZaps: skillZaps,
     })
     localStorage.setItem('token', token)
   }

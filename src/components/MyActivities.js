@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
 import API from '../helpers/API'
-import ActivityCard from './ActivityCard'
+import MyActivityCard from './MyActivityCard'
 
 class MyActivities extends React.Component {
 
@@ -11,18 +11,6 @@ class MyActivities extends React.Component {
 
     componentDidMount() {
         if (!localStorage.getItem('token')) this.props.history.push('/login')
-
-        // API.getAllActivities()
-        //     .then(data => {
-        //         if (data.error) throw Error(data.error)
-
-        //         this.setState({
-        //             allActivities: data
-        //         })
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
     }
 
 
@@ -30,8 +18,8 @@ class MyActivities extends React.Component {
         return (
             <div className="">
                 <Card.Group>
-                    {this.props.myActivities && this.props.myActivities.map(activity =>
-                        <ActivityCard key={activity.id} {...activity}/>
+                    {this.props.myActivities.map(item =>
+                        <MyActivityCard key={item.activity.id} {...item.activity}/>
                     )}
                 </Card.Group>
             </div>
