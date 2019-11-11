@@ -16,13 +16,14 @@ class API {
 
     static createUser = (user) => this.post(createUserUrl, user)
 
+    static getActivity = (activityId) => this.get(allActivitiesUrl + '/' + activityId)
+
     static get = (url) =>
         fetch(url, {
             headers: {
                 Authorization: localStorage.getItem('token')
             }
         }).then(resp => resp.json())
-
 
     static post = (url, data) =>
         fetch(url, {
@@ -32,6 +33,8 @@ class API {
             },
             body: JSON.stringify(data)
         }).then(resp => resp.json())
+
+
 }
 
 export default API
