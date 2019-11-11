@@ -104,7 +104,7 @@ class App extends React.Component {
         {this.state.user && <MainMenuSlider menuVisible={this.state.menuVisible} hideMenu={this.hideMenu} />}
         {this.state.user && <UserMenu menuVisible={this.state.userMenuVisible} hideMenu={this.hideMenu} logout={this.logOut} />}
         {this.state.user ? <div className="logged-in-pages" onClick={this.hideMenu}>
-          <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
+          <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities}/>} />
           <Route path={`/activities/${id}`} component={(routerProps) => <ActivityPage {...routerProps} />} />
           <Route exact path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} setActivity={this.setActivity} />} />
           <Route exact path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />

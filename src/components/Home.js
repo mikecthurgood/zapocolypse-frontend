@@ -9,6 +9,14 @@ class Home extends React.Component {
     if (!localStorage.getItem("token")) this.props.history.push("/login");
   }
 
+  timeConverter = (UNIX_timestamp) => {
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    const date = new Date(UNIX_timestamp)
+    const formatted_date = weekdays[date.getDay()] + ', '+ months[date.getMonth()] + ' ' + date.getDate() + ' ' + date.getFullYear()
+    return formatted_date;
+  }
+
   render() {
     return (
       <Grid divided="vertically">
@@ -25,6 +33,11 @@ class Home extends React.Component {
           <Grid.Column>
             <Grid.Row className='home-data'>
               <h1>Recent Activities</h1>
+              <ul>
+                {this.props.userActivities.map(item =>
+                  <li>{item.activity.name} - {this.timeConverter(item.created_at)}</li>
+                )}
+              </ul>
             </Grid.Row>
             <Grid.Row className='home-data'>
               <h1>Weakest Skills</h1>
@@ -33,24 +46,6 @@ class Home extends React.Component {
         </Grid.Row>
       </Grid>
 
-      // <div class="row">
-      //   <div class="dash-board-item left">
-      //     <h1>Recent Activities</h1>
-      //   </div>
-      //   <div class="dash-board-item middle">
-      //     <div className='chart'>
-            // <RadarChart
-            //   captions={captions}
-            //   data={data}
-            //   size={450}
-            //   options={options}
-            // />
-      //     </div>
-      //   </div>
-      //   <div class="dash-board-item right">
-      //     <h1>Weakest Skills</h1>
-      //   </div>
-      // </div>
     );
   }
 }
