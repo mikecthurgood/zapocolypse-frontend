@@ -1,12 +1,13 @@
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
 
-const ActivityCard = ({ name, description, activity_type, skills }) => {
+const ActivityCard = ({ name, activity_type, skills }) => {
   return (
     <div className="skill-card">
       <Card>
         <Image
-          src="https://react.semantic-ui.com/images/wireframe/image.png"
+          src={require(`../Assets/${skills[0].image_url}`)}
           size='small'
           wrapped
           ui={false}
@@ -16,13 +17,11 @@ const ActivityCard = ({ name, description, activity_type, skills }) => {
           <Card.Meta>
             <span className="date">{activity_type}</span>
           </Card.Meta>
-          <Card.Description>
-            {/* {description} */}
-          </Card.Description>
+
         </Card.Content>
         <Card.Content extra>
 
-          {skills.map(skill => <span><Icon name="smile" />{skill.name} </span>)}
+          {skills.map(skill => <span key={skill.id} ><Icon name="smile" />{skill.name} </span>)}
         </Card.Content>
       </Card>
     </div>
