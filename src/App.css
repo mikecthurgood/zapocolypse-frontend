@@ -158,3 +158,17 @@ div.cards {
   display: flex;
   justify-content: center;
 }
+
+.home-data {
+  padding: 2%;
+  text-align: left;
+  height: 50%;
+  color: azure;
+  background-color: black;
+  opacity: 70%;
+  border-radius: 5%;
+}
+
+.to-white{
+  color: azure;
+}
