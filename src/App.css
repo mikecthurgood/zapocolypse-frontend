@@ -159,6 +159,33 @@ div.cards {
   justify-content: center;
 }
 
+.activity-page {
+  color: azure;
+  width: 90%;
+  display: inline;
+  /* flex-wrap: wrap; */
+  justify-content: (space-between);
+}
+
+.skills-images {
+  float: right;
+  padding-right: 5%;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  text-align: left;
+  background-color: black;
+}
+
+.skill-image {
+  max-height: 200px;
+  border-radius: 10%;
+  padding-bottom: 2%;
+}
+
+.activity-details {
+  width: 60%;
+  
 .home-data {
   padding: 2%;
   text-align: left;
@@ -171,4 +198,5 @@ div.cards {
 
 .to-white{
   color: azure;
+
 }

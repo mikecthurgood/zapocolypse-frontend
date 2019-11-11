@@ -10,6 +10,7 @@ import Activities from './components/Activities'
 import MySkills from './components/MySkills'
 import MyActivities from './components/MyActivities'
 import CreateAccount from './components/CreateAccount'
+import ActivityPage from './components/ActivityPage';
 
 
 class App extends React.Component {
@@ -18,7 +19,8 @@ class App extends React.Component {
     user: "",
     userSkills: [],
     userActivities: [],
-    userSkillZaps: []
+    userSkillZaps: [],
+    selectedActivity: {}
   }
 
   logIn = ({token, user}) => {
@@ -68,15 +70,25 @@ class App extends React.Component {
     return Object.values(this.state.userSkillZaps).reduce((a, b) => a + b, 0)
   }
 
+  setActivity = (activityId) => {
+    // this.setState({ activityId })
+    return API.getActivity(activityId).then(data => this.setState({ selectedActivity: data }))
+    // return (activity)
+  }
+
+
   render() {
     const { logIn } = this
+    const id = ':id'
+
     return (
       <div className='main'>
         <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} />
         {this.state.user ? <div className="logged-in-pages">
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
-          <Route path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} />} />
-          <Route path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
+          <Route path={`/activities/${id}`} component={(routerProps) => <ActivityPage {...routerProps} />} />
+          <Route exact path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} setActivity={this.setActivity} />} />
+          <Route exact path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
           <Route path="/myactivities" component={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
           <Route path="/profile" component={Home} />
