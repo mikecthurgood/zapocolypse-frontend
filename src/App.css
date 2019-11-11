@@ -172,6 +172,9 @@ div.cards {
   padding-right: 5%;
   display: flex;
   flex-direction: column;
+  width: 20%;
+  text-align: left;
+  background-color: black;
 }
 
 .skill-image {

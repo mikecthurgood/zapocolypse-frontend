@@ -20,7 +20,8 @@ class ActivityPage extends React.Component {
                 <div className='skills-images'>
                     {skills && skills.map(skill =>
                         <div key={skill.id} className="skill-image"><img className="skill-image" src={require(`../Assets/${skill.image_url}`)} alt="" />
-                            <p>{skill.name}</p></div>)}
+                            <p>{skill.name}</p>
+                            <p>{skill.description}</p></div>)}
                 </div>
                 <div className="activity-details">
                     <p>Location: {location}</p>
