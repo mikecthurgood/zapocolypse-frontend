@@ -1,10 +1,11 @@
 const captions = {
     // columns
     survival: 'Survival',
-    combat: 'Combat',
     fitness: 'Fitness',
-    intelligence: 'Intelligence',
+    combat: 'Combat',
+    crafting: 'Crafting',
     engineering: 'Engineering',
+    driving: 'Driving',
     medical: 'Medical'
   };
 
