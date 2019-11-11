@@ -11,6 +11,9 @@ import MySkills from './components/MySkills'
 import MyActivities from './components/MyActivities'
 import CreateAccount from './components/CreateAccount'
 import ActivityPage from './components/ActivityPage';
+import MainMenuSlider from "./components/MainMenu";
+import UserMenu from './components/UserMenu'
+
 
 
 class App extends React.Component {
@@ -20,10 +23,26 @@ class App extends React.Component {
     userSkills: [],
     userActivities: [],
     userSkillZaps: [],
-    selectedActivity: {}
+    selectedActivity: {},
+    menuVisible: false,
+    userMenuVisible: false
   }
 
-  logIn = ({token, user}) => {
+  toggleMenu = () => {
+    this.setState({ menuVisible: !this.state.menuVisible, userMenuVisible: false })
+  }
+
+  toggleUserMenu = () => {
+    this.setState({ userMenuVisible: !this.state.userMenuVisible, menuVisible: false })
+  }
+
+  hideMenu = () => {
+    (this.state.menuVisible || this.state.userMenuVisible) && this.setState({ menuVisible: false, userMenuVisible: false })
+  }
+
+
+
+  logIn = ({ token, user }) => {
 
     this.setState({
       user: user.username,
@@ -83,8 +102,10 @@ class App extends React.Component {
 
     return (
       <div className='main'>
-        <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} />
-        {this.state.user ? <div className="logged-in-pages">
+        <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} toggleMenu={this.toggleMenu} toggleUserMenu={this.toggleUserMenu} />
+        {this.state.user && <MainMenuSlider menuVisible={this.state.menuVisible} hideMenu={this.hideMenu} />}
+        {this.state.user && <UserMenu menuVisible={this.state.userMenuVisible} hideMenu={this.hideMenu} logout={this.logOut} />}
+        {this.state.user ? <div className="logged-in-pages" onClick={this.hideMenu}>
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
           <Route path={`/activities/${id}`} component={(routerProps) => <ActivityPage {...routerProps} />} />
           <Route exact path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} setActivity={this.setActivity} />} />
