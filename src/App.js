@@ -23,13 +23,15 @@ class App extends React.Component {
     selectedActivity: {}
   }
 
-  logIn = ({token, user}) => {
-
+  logIn = ({user, token, skillZaps, userSkills}) => {
+    console.log(user, token)
+    // const skills = user.user_activities.map( ua => ua.activity.skill_activities).flat()
+    
     this.setState({
       user: user.username,
-      userSkills: user.skills,
-      userActivities: user.activities,
-      userSkillZaps: user.skillZaps,
+      userSkills: userSkills,
+      userActivities: user.user_activities,
+      userSkillZaps: skillZaps,
     })
     localStorage.setItem('token', token)
   }

@@ -10,6 +10,7 @@ class MySkills extends React.Component {
 
 
     render() {
+
         return (
             <div className="">
                 <Card.Group>
