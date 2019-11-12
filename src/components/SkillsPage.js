@@ -3,12 +3,12 @@ import API from '../helpers/API'
 import { Card } from 'semantic-ui-react'
 import SkillCard from './SkillCard'
 import ActivityCard from './ActivityCard'
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import { CircularProgressbar, CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 //checks for empty object
 Object.prototype.isEmpty = function() {
-    for(var key in this) {
+    for(const key in this) {
         if(this.hasOwnProperty(key))
             return false;
     }
@@ -34,10 +34,41 @@ class SkillsPage extends React.Component {
             })})
     }
 
-    showProgressBar = (zaps, skill) => {
-        if (!zaps.isEmpty()) return <CircularProgressbar value={zaps[skill.id]} text={`${zaps[skill.id]}⚡️`} />
+    skillLevel = (val) => {
+        if (val>=0 && val < 5) {
+            return 'Ignorant'
+        }else if (val>=5 && val < 20){
+            return 'Noob'
+        }else if (val>=20 && val < 100){
+            return 'Disciple'
+        }else if (val>=100 && val < 500){
+            return 'Adept'
+        }else if (val>=500 && val < 1000){
+            return 'Expert'
+        }else if (val>=1000){
+            return 'Master'
+        }
+    }
 
-        return <CircularProgressbar value={0} text={'0⚡️'} />
+    showProgressBar = (zaps, skill) => {
+        if (!zaps.isEmpty()) {
+            return (
+                <CircularProgressbarWithChildren value={zaps[skill.id]}>
+                    <div className='inside-progress-bar'>
+                        <div className='prog-bar-elements'><strong>{zaps[skill.id]}⚡️</strong> </div><br/>
+                        <div className='prog-bar-elements'>{this.skillLevel(zaps[skill.id])}</div>
+                    </div>
+                </CircularProgressbarWithChildren>
+            )
+        }
+        return (
+            <CircularProgressbarWithChildren value={0}>
+                <div className='inside-progress-bar'>
+                    <div className='prog-bar-elements'><strong>{0}⚡️</strong> </div><br/>
+                    <div className='prog-bar-elements'>{this.skillLevel(0)}</div>
+                </div>
+            </CircularProgressbarWithChildren>
+        )
     }
 
     render() {

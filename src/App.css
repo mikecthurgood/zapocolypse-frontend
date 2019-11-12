@@ -319,3 +319,12 @@ Button.menu-button:hover {
   flex-wrap: wrap;
 }
 
+.inside-progress-bar{
+  font-size: 4rem;
+
+}
+
+.prog-bar-elements{
+  padding: 2rem;
+  text-align: center;
+}

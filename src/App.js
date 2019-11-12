@@ -47,7 +47,7 @@ class App extends React.Component {
       user: user.username,
       userSkills: userSkills,
       userActivities: user.user_activities,
-      userSkillZaps: skillZaps,
+      userSkillZaps: skillZaps
     })
     localStorage.setItem('token', token)
   }

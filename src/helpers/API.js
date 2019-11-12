@@ -4,6 +4,7 @@ const validateUrl = baseUrl + 'validate'
 const allSkillsUrl = baseUrl + 'skills'
 const allActivitiesUrl = baseUrl + 'activities'
 const createUserUrl = baseUrl + 'create-user'
+const chartDataUrl = baseUrl + 'chart-data'
 
 class API {
     static signIn = (username, password) => this.post(signInUrl, { username, password })
@@ -19,6 +20,8 @@ class API {
     static getActivity = (activityId) => this.get(allActivitiesUrl + '/' + activityId)
 
     static getSkill = (skillId) => this.get(allSkillsUrl + '/' + skillId)
+
+    static getRadalChartData = () => this.get(chartDataUrl)
 
     static bookActivity = (activityId) => this.get(allActivitiesUrl + '/' + activityId + '/' + 'book')
 
