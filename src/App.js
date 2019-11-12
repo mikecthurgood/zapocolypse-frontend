@@ -13,6 +13,7 @@ import CreateAccount from './components/CreateAccount'
 import ActivityPage from './components/ActivityPage';
 import MainMenuSlider from "./components/MainMenu";
 import UserMenu from './components/UserMenu'
+import SkillsPage from './components/SkillsPage'
 
 
 
@@ -109,6 +110,7 @@ class App extends React.Component {
           <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} />} />
           <Route path={`/activities/${id}`} component={(routerProps) => <ActivityPage {...routerProps} />} />
           <Route exact path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} setActivity={this.setActivity} />} />
+          <Route path={`/skills/${id}`} component={(routerProps) => <SkillsPage {...routerProps} />} />
           <Route exact path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
           <Route path="/myactivities" component={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />

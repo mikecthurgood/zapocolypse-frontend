@@ -18,6 +18,8 @@ class API {
 
     static getActivity = (activityId) => this.get(allActivitiesUrl + '/' + activityId)
 
+    static getSkill = (skillId) => this.get(allSkillsUrl + '/' + skillId)
+
     static get = (url) =>
         fetch(url, {
             headers: {
