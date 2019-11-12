@@ -42,7 +42,7 @@ class App extends React.Component {
     (this.state.menuVisible || this.state.userMenuVisible) && this.setState({ menuVisible: false, userMenuVisible: false })
   }
 
-  logIn = ({user, token, skillZaps, userSkills}) => {
+  logIn = ({ user, token, skillZaps, userSkills }) => {
     this.setState({
       user: user.username,
       userSkills: userSkills,
@@ -53,7 +53,7 @@ class App extends React.Component {
   }
 
   logOut = () => {
-    this.setState({ user: "" })
+    this.setState({ user: "", userMenuVisible: false })
     localStorage.removeItem('token')
     this.props.history.push('/login')
   }
@@ -105,7 +105,7 @@ class App extends React.Component {
         {this.state.user && <MainMenuSlider menuVisible={this.state.menuVisible} hideMenu={this.hideMenu} />}
         {this.state.user && <UserMenu menuVisible={this.state.userMenuVisible} hideMenu={this.hideMenu} logout={this.logOut} />}
         {this.state.user ? <div className="logged-in-pages" onClick={this.hideMenu}>
-          <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities}/>} />
+          <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} />} />
           <Route path={`/activities/${id}`} component={(routerProps) => <ActivityPage {...routerProps} />} />
           <Route exact path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} setActivity={this.setActivity} />} />
           <Route path={`/skills/${id}`} component={(routerProps) => <SkillsPage {...routerProps} />} />
