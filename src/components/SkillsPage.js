@@ -1,6 +1,5 @@
 import React from 'react'
 import API from '../helpers/API'
-import { Card } from 'semantic-ui-react'
 import SkillCard from './SkillCard'
 import ActivityCard from './ActivityCard'
 import { CircularProgressbar, CircularProgressbarWithChildren } from 'react-circular-progressbar';

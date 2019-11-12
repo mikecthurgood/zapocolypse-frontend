@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Image, Icon, Button } from "semantic-ui-react";
+import { Card, Image, Icon } from "semantic-ui-react";
 import { Link } from 'react-router-dom'
 
 // const courseDuration (minutes) => {
