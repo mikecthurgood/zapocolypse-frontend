@@ -206,7 +206,12 @@ div.cards {
   color: azure;
 }
 
-
+.progress-chart{
+  text-align: right;
+  padding: 1%;
+  height: 25%;
+  width: 25%;
+}
 
 #flyoutMenu {
   width: fit-content;
@@ -293,7 +298,7 @@ Button.menu-button:hover {
 }
 
 .skill-page {
-  color: white
+  color: white;
 }
 
 .skill-activities {
@@ -301,5 +306,8 @@ Button.menu-button:hover {
   flex-wrap: wrap;
 }
 
-
+.skill-header{
+  display: flex;
+  flex-wrap: wrap;
+}
 
