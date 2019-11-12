@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react'
 import API from '../helpers/API'
 import ActivityCard from './ActivityCard'
 
-class Activities extends React.PureComponent {
+class Activities extends React.Component {
 
     state = {
         allActivities: []

@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, Image, Icon, Button } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
 
-const SkillCard = ({ name, description, skill_type, image_url }) => {
+const SkillCard = ({ name, description, skill_type, image_url, singleSkill, id }) => {
   return (
     <div className="skill-card">
       <Card>
@@ -12,7 +13,7 @@ const SkillCard = ({ name, description, skill_type, image_url }) => {
           ui={false}
         />
         <Card.Content>
-          <Card.Header>{name}</Card.Header>
+          {!singleSkill && <Card.Header>{name}</Card.Header>}
           <Card.Meta>
             <span className="date">{skill_type}</span>
           </Card.Meta>
@@ -20,9 +21,9 @@ const SkillCard = ({ name, description, skill_type, image_url }) => {
             {description}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
-          <Button fluid>See All Activities</Button>
-        </Card.Content>
+        {!singleSkill && <Card.Content extra>
+          <Link to={`/skills/${id}`}><Button fluid >See All Activities</Button></Link>
+        </Card.Content>}
 
         <Card.Content extra>
           <Icon name="smile" />
