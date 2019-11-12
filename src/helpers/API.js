@@ -23,6 +23,8 @@ class API {
 
     static getRadalChartData = () => this.get(chartDataUrl)
 
+    static bookActivity = (activityId) => this.get(allActivitiesUrl + '/' + activityId + '/' + 'book')
+
     static get = (url) =>
         fetch(url, {
             headers: {

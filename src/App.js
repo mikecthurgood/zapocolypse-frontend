@@ -24,7 +24,6 @@ class App extends React.Component {
     userSkills: [],
     userActivities: [],
     userSkillZaps: [],
-    userSkillClassZaps: {},
     selectedActivity: {},
     menuVisible: false,
     userMenuVisible: false
@@ -43,13 +42,12 @@ class App extends React.Component {
     (this.state.menuVisible || this.state.userMenuVisible) && this.setState({ menuVisible: false, userMenuVisible: false })
   }
 
-  logIn = ({ user, token, skillZaps, userSkills, skillClassZaps }) => {
+  logIn = ({ user, token, skillZaps, userSkills }) => {
     this.setState({
       user: user.username,
       userSkills: userSkills,
       userActivities: user.user_activities,
-      userSkillZaps: skillZaps,
-      userSkillClassZaps: skillClassZaps
+      userSkillZaps: skillZaps
     })
     localStorage.setItem('token', token)
   }
@@ -96,6 +94,8 @@ class App extends React.Component {
     // return (activity)
   }
 
+  setUser = (user) => this.setState({ userActivities: user.user.user_activities })
+
 
   render() {
     const { logIn } = this
@@ -107,13 +107,13 @@ class App extends React.Component {
         {this.state.user && <MainMenuSlider menuVisible={this.state.menuVisible} hideMenu={this.hideMenu} />}
         {this.state.user && <UserMenu menuVisible={this.state.userMenuVisible} hideMenu={this.hideMenu} logout={this.logOut} />}
         {this.state.user ? <div className="logged-in-pages" onClick={this.hideMenu}>
-          <Route exact path="/" component={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} skillClassZaps={this.state.userSkillClassZaps}/>} />
-          <Route path={`/activities/${id}`} component={(routerProps) => <ActivityPage {...routerProps} />} />
-          <Route exact path="/activities" component={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} setActivity={this.setActivity} />} />
-          <Route path={`/skills/${id}`} component={(routerProps) => <SkillsPage {...routerProps} />} />
-          <Route exact path="/skills" component={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
-          <Route path="/myskills" component={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
-          <Route path="/myactivities" component={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
+          <Route exact path="/" render={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} />} />
+          <Route path={`/activities/${id}`} component={(routerProps) => <ActivityPage {...routerProps} userActivities={this.state.userActivities} setUser={this.setUser} />} />
+          <Route exact path="/activities" render={(routerProps) => <Activities {...routerProps} getActivities={this.getActivities} user={this.state.user} setActivity={this.setActivity} userActivities={this.state.userActivities} />} />
+          <Route path={`/skills/${id}`} render={(routerProps) => <SkillsPage {...routerProps} />} />
+          <Route exact path="/skills" render={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
+          <Route path="/myskills" render={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
+          <Route path="/myactivities" render={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
           <Route path="/profile" component={Home} />
           <Route path="/my-account" component={Home} />
         </div> :
