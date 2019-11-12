@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class MainMenuSlider extends React.Component {
 
@@ -11,58 +11,53 @@ class MainMenuSlider extends React.Component {
 
         return (
             <div id="flyoutMenu" className={visibility}>
-                <h2><Link
+                <h2><NavLink
                     className="menu-link"
                     to="/"
-                    exact
-                    activeStyle={{
+                    activestyle={{
                         color: 'gold'
                     }}
                     onClick={this.props.hideMenu}
-                >Home</Link></h2>
+                >Home</NavLink></h2>
 
-                <h2><Link
+                <h2><NavLink
                     className="menu-link"
                     to="/activities"
-                    exact
-                    activeStyle={{
+                    activestyle={{
                         color: 'gold'
                     }}
                     onClick={this.props.hideMenu}
 
-                >All Activities</Link></h2>
-                <h2><Link
+                >All Activities</NavLink></h2>
+                <h2><NavLink
                     className="menu-link"
                     to="/skills"
-                    exact
-                    activeStyle={{
+                    activestyle={{
                         color: 'gold'
                     }}
                     onClick={this.props.hideMenu}
 
-                >All Skills</Link></h2>
+                >All Skills</NavLink></h2>
 
-                <h2><Link
+                <h2><NavLink
                     className="menu-link"
                     to="/myskills"
-                    exact
-                    activeStyle={{
+                    activestyle={{
                         color: 'gold'
                     }}
                     onClick={this.props.hideMenu}
 
-                >My Skills</Link></h2>
+                >My Skills</NavLink></h2>
 
-                <h2> <Link
+                <h2> <NavLink
                     className="menu-link"
                     to="/myactivities"
-                    exact
-                    activeStyle={{
+                    activestyle={{
                         color: 'gold'
                     }}
                     onClick={this.props.hideMenu}
 
-                >My Activities</Link></h2>
+                >My Activities</NavLink></h2>
             </div>
         )
     }

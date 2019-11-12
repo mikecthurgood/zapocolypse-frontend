@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class UserMenu extends React.Component {
 
@@ -12,37 +12,37 @@ class UserMenu extends React.Component {
         return (
             <div id="userMenu" className={visibility}>
 
-                <h2><Link
+                <h2><NavLink
                     className="menu-link"
                     to="/profile"
                     exact
-                    activeStyle={{
+                    activestyle={{
                         color: 'gold'
                     }}
                     onClick={this.props.hideMenu}
 
-                >My Profile</Link></h2>
+                >My Profile</NavLink></h2>
 
-                <h2><Link
+                <h2><NavLink
                     className="menu-link"
                     to="/my-account"
                     exact
-                    activeStyle={{
+                    activestyle={{
                         color: 'gold'
                     }}
                     onClick={this.props.hideMenu}
 
-                >My Account</Link></h2>
-                <h2><Link
+                >My Account</NavLink></h2>
+                <h2><NavLink
                     className="menu-link"
                     to="/login"
                     exact
-                    activeStyle={{
+                    activestyle={{
                         color: 'gold'
                     }}
                     onClick={this.props.logout}
 
-                >Log Out</Link></h2>
+                >Log Out</NavLink></h2>
             </div>
         )
     }

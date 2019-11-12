@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
-import API from '../helpers/API'
+// import API from '../helpers/API'
 import MyActivityCard from './MyActivityCard'
 
 class MyActivities extends React.Component {
@@ -19,7 +19,7 @@ class MyActivities extends React.Component {
             <div className="">
                 <Card.Group>
                     {this.props.myActivities.map(item =>
-                        <MyActivityCard key={item.activity.id} {...item.activity}/>
+                        <MyActivityCard key={item.activity.id} {...item.activity} />
                     )}
                 </Card.Group>
             </div>
