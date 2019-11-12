@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Image, Icon } from "semantic-ui-react";
+import { Card, Image, Icon, Button } from "semantic-ui-react";
 
 const SkillCard = ({ name, description, skill_type, image_url }) => {
   return (
@@ -20,6 +20,10 @@ const SkillCard = ({ name, description, skill_type, image_url }) => {
             {description}
           </Card.Description>
         </Card.Content>
+        <Card.Content extra>
+          <Button fluid>See All Activities</Button>
+        </Card.Content>
+
         <Card.Content extra>
           <Icon name="smile" />
           skill
