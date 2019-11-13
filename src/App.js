@@ -113,7 +113,7 @@ class App extends React.Component {
           <Route path={`/skills/${id}`} render={(routerProps) => <SkillsPage {...routerProps} />} />
           <Route exact path="/skills" render={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/myskills" render={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
-          <Route path="/myactivities" render={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
+          <Route path="/myactivities" component={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
           <Route path="/profile" render={(routerProps) => <Profile {...routerProps} logIn={logIn} userActivities={this.state.userActivities} userSkills={this.state.userSkills} />} />
           <Route path="/my-account" render={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} />} />
         </div> :
