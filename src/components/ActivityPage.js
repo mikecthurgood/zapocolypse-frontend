@@ -37,7 +37,7 @@ class ActivityPage extends React.Component {
                 </div>
                 <div className="activity-details">
                     <p>Location: {location}</p>
-                    <p>Cost: {cost}</p>
+                    <p>Cost: £{cost}</p>
                     <p>Description: {description}</p>
                     <p>Find out more: {url} </p>
                     {url && url.includes('youtube') ?
