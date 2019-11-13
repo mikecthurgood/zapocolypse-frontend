@@ -328,3 +328,120 @@ Button.menu-button:hover {
   padding: 2rem;
   text-align: center;
 }
+
+
+.car-mech > .progress-bar {
+  background-color: #ad8e6f !important;
+}
+
+.large-v-mech > .progress-bar {
+  background-color: #23778e !important;
+}
+
+.moto-mech > .progress-bar {
+  background-color: #734d26 !important;
+}
+
+.electrical > .progress-bar {
+  background-color: #ffff33 !important;
+}
+
+.carpentry > .progress-bar {
+  background-color: #a5644d !important;
+}
+
+.archery > .progress-bar {
+  background-color: #8ece86 !important;
+}
+
+.shooting > .progress-bar {
+  background-color: #585754 !important;
+}
+
+.crossbow > .progress-bar {
+  background-color: #a2a565 !important;
+}
+
+.small-weap > .progress-bar {
+  background-color: #9ea4a6 !important;
+}
+
+.weap-craft > .progress-bar {
+  background-color: #7b737b !important;
+}
+
+.hunting > .progress-bar {
+  background-color: #76a67e !important;
+}
+
+.fishing > .progress-bar {
+  background-color: #53b2fb !important;
+}
+
+.foraging > .progress-bar {
+  background-color: #70543e !important;
+}
+
+.camp-make > .progress-bar {
+  background-color: #eddbcf !important;
+}
+
+.fitness > .progress-bar {
+  background-color: #5a005a !important;
+}
+
+.unarmed-combat > .progress-bar {
+  background-color: #efd3ac !important;
+}
+
+.first-aid > .progress-bar {
+  background-color: #cf3a24 !important;
+}
+
+.psychology > .progress-bar {
+  background-color: #06b8b9 !important;
+}
+
+.drugs-remedies > .progress-bar {
+  background-color: #940008 !important;
+}
+
+.diagnosis > .progress-bar {
+  background-color: #41bfb5 !important;
+}
+
+.clothing > .progress-bar {
+  background-color: #f2ecda !important;
+}
+
+.tech > .progress-bar {
+  background-color: #375673 !important;
+}
+
+.construction > .progress-bar {
+  background-color: #cccc33 !important;
+}
+
+.fire-make > .progress-bar {
+  background-color: #ff7b00 !important;
+}
+
+.car-handle > .progress-bar {
+  background-color: #b5b5b5 !important;
+}
+
+.large-handle > .progress-bar {
+  background-color: #959da5 !important;
+}
+
+.moto-handle > .progress-bar {
+  background-color: #c7c7bf !important;
+}
+
+.car-offroad > .progress-bar {
+  background-color: #9b7651 !important;
+}
+
+.moto-offroad > .progress-bar {
+  background-color: #9b7653 !important;
+}

@@ -1,14 +1,16 @@
 import React from "react";
 import captions from "../helpers/chartCaptions";
-import API from '../helpers/API';
+import API from "../helpers/API";
 import RadarChart from "react-svg-radar-chart";
 import { Grid } from "semantic-ui-react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ProgressBar from "react-bootstrap/ProgressBar";
 import "./data.css";
-
 
 class Home extends React.Component {
   state = {
-    data: {}
+    data: {},
+    strongestSkills: []
   };
 
   componentDidMount() {
@@ -17,9 +19,10 @@ class Home extends React.Component {
       .then(data => {
         if (data.error) throw Error(data.error);
         // Object.keys(data.skillClassZaps).forEach((k) => data.skillClassZaps[k] = data.skillClassZaps[k].toFixed(3))
-        
+
         this.setState({
-          data: data.skillClassZaps
+          data: data.skillClassZaps,
+          strongestSkills: data.strongestSkills
         });
       })
       .catch(error => {
@@ -64,7 +67,6 @@ class Home extends React.Component {
   };
 
   getData = skillClassZ => {
-    
     if (!skillClassZ || skillClassZ.isEmpty()) {
       const nilData = [
         {
@@ -82,7 +84,7 @@ class Home extends React.Component {
       ];
       return nilData;
     }
-    
+
     const data = [
       {
         data: skillClassZ,
@@ -92,36 +94,113 @@ class Home extends React.Component {
     return data;
   };
 
+  chooseColor = name => {
+    switch (name) {
+      case "Car Mechanics":
+        return "car-mech";
+      case "Large Vehicle mechanics":
+        return "large-v-mech";
+      case "Motorbike Mechanics":
+        return "moto-mech";
+      case "Electrical":
+        return "electrical";
+      case "Carpentry":
+        return "carpentry";
+      case "Archery":
+        return "archery";
+      case "Shooting":
+        return "shooting";
+      case "Crossbow":
+        return "crossbow";
+      case "Small Weapons":
+        return "small-weap";
+      case "Weapons Crafting":
+        return "weap-craft";
+      case "Hunting":
+        return "hunting";
+      case "Fishing":
+        return "fishing";
+      case "Foraging":
+        return "foraging";
+      case "Camp making":
+        return "camp-make";
+      case "Fitness":
+        return "fitness";
+      case "Unarmed Combat":
+        return "unarmed-combat";
+      case "First aid":
+        return "first-aid";
+      case "Psychology":
+        return "psychology";
+      case "Drugs and remedies":
+        return "drug-remedies";
+      case "Diagnosis":
+        return "diagnosis";
+      case "Clothing":
+        return "clothing";
+      case "Tech":
+        return "tech"
+      case "Construction":
+        return "construction";
+      case "Fire Making":
+        return "fire-make";
+      case "Car Handling":
+        return "car-handle";
+      case "Large Vehicle Handling":
+        return "large-handle";
+      case "Motorcycle Handling":
+        return "moto-handle";
+      case "Offroad (Cars)":
+        return "car-offroad";
+      case "Offroad (Bikes)":
+        return "moto-offroad";
+      default:
+        return "dark";
+    }
+  };
+
   render() {
+    const { strongestSkills } = this.state;
     return (
-      <Grid divided="vertically">
-        <Grid.Row columns={2}>
-          <Grid.Column>
-            <h1 className="to-white">Your Key Skills</h1>
-            <RadarChart
-              captions={captions}
-              data={this.getData(this.state.data)}
-              size={450}
-              options={options}
-            />
-          </Grid.Column>
-          <Grid.Column>
-            <Grid.Row className="home-data">
-              <h1>Recent Activities</h1>
-              <ul>
-                {this.props.userActivities.map(item => (
-                  <li>
-                    {item.activity.name} - {this.timeConverter(item.created_at)}
-                  </li>
-                ))}
-              </ul>
-            </Grid.Row>
-            <Grid.Row className="home-data">
-              <h1>Weakest Skills</h1>
-            </Grid.Row>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <div>
+        <h1 className="to-white">Your Key Skills</h1>
+        <RadarChart
+          captions={captions}
+          data={this.getData(this.state.data)}
+          size={450}
+          options={options}
+        />
+
+        <div className="home-data">
+          <h1>Recent Activities</h1>
+          <ul>
+            {this.props.userActivities.map(item => (
+              <li>
+                {item.activity.name} - {this.timeConverter(item.created_at)}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="home-data">
+          <h1>Strongest Skills</h1>
+          <div>
+            {strongestSkills &&
+              strongestSkills.map(skillArray => (
+                <>
+                  <label>{skillArray[0]}</label>
+                  <ProgressBar
+                    animated
+                    
+                    now={skillArray[1]}
+                    max={1500}
+                  className={this.chooseColor(skillArray[0])}
+                  />
+                  <br />
+                </>
+              ))}
+          </div>
+        </div>
+      </div>
     );
   }
 }
