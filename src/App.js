@@ -14,8 +14,7 @@ import ActivityPage from './components/ActivityPage';
 import MainMenuSlider from "./components/MainMenu";
 import UserMenu from './components/UserMenu'
 import SkillsPage from './components/SkillsPage'
-
-
+import Profile from './components/Profile'
 
 class App extends React.Component {
 
@@ -36,7 +35,6 @@ class App extends React.Component {
   toggleUserMenu = () => {
     this.setState({ userMenuVisible: !this.state.userMenuVisible, menuVisible: false })
   }
-
 
   hideMenu = () => {
     (this.state.menuVisible || this.state.userMenuVisible) && this.setState({ menuVisible: false, userMenuVisible: false })
@@ -70,6 +68,8 @@ class App extends React.Component {
           console.log(error)
           localStorage.removeItem('token')
         })
+    } else {
+      this.props.history.push('/login')
     }
   }
 
@@ -89,9 +89,7 @@ class App extends React.Component {
   }
 
   setActivity = (activityId) => {
-    // this.setState({ activityId })
     return API.getActivity(activityId).then(data => this.setState({ selectedActivity: data }))
-    // return (activity)
   }
 
   setUser = (user) => this.setState({ userActivities: user.user.user_activities })
@@ -104,8 +102,10 @@ class App extends React.Component {
     return (
       <div className='main'>
         <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} toggleMenu={this.toggleMenu} toggleUserMenu={this.toggleUserMenu} />
-        {this.state.user && <MainMenuSlider menuVisible={this.state.menuVisible} hideMenu={this.hideMenu} />}
-        {this.state.user && <UserMenu menuVisible={this.state.userMenuVisible} hideMenu={this.hideMenu} logout={this.logOut} />}
+        <div className='menus'>
+          {this.state.user && <MainMenuSlider menuVisible={this.state.menuVisible} hideMenu={this.hideMenu} />}
+          {this.state.user && <UserMenu menuVisible={this.state.userMenuVisible} hideMenu={this.hideMenu} logout={this.logOut} />}
+        </div>
         {this.state.user ? <div className="logged-in-pages" onClick={this.hideMenu}>
           <Route exact path="/" render={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} />} />
           <Route path={`/activities/${id}`} component={(routerProps) => <ActivityPage {...routerProps} userActivities={this.state.userActivities} setUser={this.setUser} />} />
@@ -114,7 +114,7 @@ class App extends React.Component {
           <Route exact path="/skills" render={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/myskills" render={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
           <Route path="/myactivities" render={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
-          <Route path="/profile" render={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} />} />
+          <Route path="/profile" render={(routerProps) => <Profile {...routerProps} logIn={logIn} userActivities={this.state.userActivities} userSkills={this.state.userSkills} />} />
           <Route path="/my-account" render={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} />} />
         </div> :
           <div className="login-pages">
