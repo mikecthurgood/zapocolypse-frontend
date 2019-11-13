@@ -1,5 +1,15 @@
+#root {
+  width: 100%;
+}
+
+
 h1 {
   color: white
+}
+
+h4 {
+  padding: 0;
+  margin: 0;
 }
 
 .App {
@@ -115,13 +125,13 @@ a {
   padding-top: 60px;
   height: 100vh;
   background-color: #282c34;
-  width: 100vw;
+  max-width: 1200px;
 }
 
 .logged-in-pages {
   padding-top: 60px;
   padding-left: 20px;
-  height: 100%;
+  min-height: 100vh;
   background-color: #282c34;  
   width: 100vw;
   background: url('./Assets/thumb-1920-77515.jpg') bottom center fixed;
@@ -203,7 +213,9 @@ div.cards {
   opacity: 70%;
   border-radius: 5%;
   height: 40%;
-  margin: 2%
+  margin: 2%;
+  overflow: hidden;
+
 }
 
 .to-white{
@@ -217,19 +229,22 @@ div.cards {
   width: 25%;
 }
 
+.menus {
+}
+
 #flyoutMenu {
   width: fit-content;
-  height: 95vh;
+  height: 100%;
   background-color: rgb(91, 94, 94);
-  position: fixed;
+  position: absolute;
   opacity: 90%;
   padding-left: 2%;
-  padding-top: 60px;
+  padding-top: 65px;
   padding-right: 5%;
-  top: 0;
+  bottom: 0;
   left: 0;
   margin-top: 3.7%;
-  transition: transform .9s
+  transition: transform .5s
               cubic-bezier(0, .52, 0, 1);
   overflow: scroll;
   z-index: 99;
@@ -269,11 +284,11 @@ Button.menu-button:hover {
   width: fit-content;
   height: fit-content;
   background-color: rgb(91, 94, 94);
-  position: fixed;
+  position: absolute;
   opacity: 90%;
   padding-right: 3%;
   padding-left: 2%;
-  padding-top: 60px;
+  padding-top: 15px;
   top: 0;
   right: 0;
   margin-top: 3%;
@@ -281,6 +296,7 @@ Button.menu-button:hover {
               cubic-bezier(0, .52, 0, 1);
   overflow: scroll;
   z-index: 99;
+  box-sizing: border-box;
 
 }
 
@@ -324,3 +340,79 @@ Button.menu-button:hover {
   padding: 2rem;
   text-align: center;
 }
+
+.custom-activity {
+  color: white;
+  padding-bottom: 2rem 
+}
+
+.custom-activity a {
+  color: gold;
+}
+
+.profile-page {
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.profile-radal {
+  width: fit-content;
+}
+
+.profile-page-top {
+  display: flex;
+  width: 100%;
+  height: 60%;
+  position: relative;
+}
+
+.profile-skills-container {
+  max-width: 90%;
+}
+
+.new-activity-form {
+width: 60%;
+margin-left: 5%;
+margin-right: 5%;
+}
+
+.activity-form {
+  color: black;
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 3rem;
+  padding-top: -20px;
+}
+
+.activity-form-form {
+  z-index: 0
+}
+
+.add-activity-button {
+  padding-top: 2rem;
+  z-index: 30;
+}
+
+.new-activity-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-skills {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-skill {
+  color: white;
+  margin: 10px;
+}
+
+.profile-skills-image {
+  max-height: 150px;
+  border-radius: 10%;
+}
+

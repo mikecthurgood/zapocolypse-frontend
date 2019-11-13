@@ -25,6 +25,8 @@ class API {
 
     static bookActivity = (activityId) => this.get(allActivitiesUrl + '/' + activityId + '/' + 'book')
 
+    static newActivity = (activityObject) => this.post(allSkillsUrl + '/' + 'create')
+
     static get = (url) =>
         fetch(url, {
             headers: {
