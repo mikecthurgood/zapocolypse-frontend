@@ -36,6 +36,7 @@ class API {
         fetch(url, {
             method: 'POST',
             headers: {
+                Authorization: localStorage.getItem('token'),
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
