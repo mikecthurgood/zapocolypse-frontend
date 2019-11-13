@@ -29,8 +29,8 @@ class Activities extends React.Component {
 
     render() {
         return (
-            <div className="activities">
-                <h1>My Activities</h1>
+            <div><br /><br />
+                <h1>Activities</h1>
                 <div className='custom-activity'><h3>Completed an activity we don't have listed? Create a <Link to='/profile'>Custom Activity</Link> in your profile.</h3></div>
 
                 <Card.Group>

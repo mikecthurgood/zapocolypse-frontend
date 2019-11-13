@@ -1,5 +1,6 @@
 #root {
   width: 100%;
+  min-height: 100vh;
 }
 
 
@@ -121,17 +122,10 @@ a {
   text-decoration: none;
 }
 
-.main {
-  padding-top: 60px;
-  height: 100vh;
-  background-color: #282c34;
-  max-width: 1200px;
-}
-
 .logged-in-pages {
-  padding-top: 60px;
+  padding-top: 0px;
   padding-left: 20px;
-  min-height: 100vh;
+  min-height: 94.5vh;
   background-color: #282c34;  
   width: 100vw;
   background: url('./Assets/thumb-1920-77515.jpg') bottom center fixed;
@@ -139,15 +133,15 @@ a {
   background-size: 3600px, 2000px;
 }
 
+.skill-cards {
+  /* margin: 1rem; */
+  color: white
+}
 
 .skill-card {
   margin: 1rem;
 }
 
-.skill-cards {
-  background-image: none;
-  background-color: #282c34;
-}
 
 .activities {
   background-image: none;
@@ -534,3 +528,18 @@ margin-right: 5%;
   background-color: #9b7653 !important;
 }
 
+.home-page {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+}
+
+.home-page-header {
+  min-height: 10vh;
+  width: 100vw;
+}
+
+.home-page-data {
+
+}

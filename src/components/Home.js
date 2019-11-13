@@ -163,41 +163,48 @@ class Home extends React.Component {
     const { strongestSkills } = this.state;
     return (
       <div>
-        <h1 className="to-white">Your Key Skills</h1>
-        <RadarChart
-          captions={captions}
-          data={this.getData(this.state.data)}
-          size={450}
-          options={options}
-        />
+        <div className='home-page'>
+          <div className='home-page-header'>
+          </div>
+          <h1>Slayer Stats</h1>
+          <div className='home-page-data'>
 
-        <div className="home-data">
-          <h1>Recent Activities</h1>
-          <ul>
-            {this.props.userActivities.map(item => (
-              <li>
-                {item.activity.name} - {this.timeConverter(item.created_at)}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="home-data">
-          <h1>Strongest Skills</h1>
-          <div>
-            {strongestSkills &&
-              strongestSkills.map(skillArray => (
-                <>
-                  <label>{skillArray[0]}</label>
-                  <ProgressBar
-                    animated
-                    
-                    now={skillArray[1]}
-                    max={1500}
-                  className={this.chooseColor(skillArray[0])}
-                  />
-                  <br />
-                </>
-              ))}
+            <RadarChart
+              captions={captions}
+              data={this.getData(this.state.data)}
+              size={450}
+              options={options}
+            />
+
+            <div className="home-data">
+              <h1>Recent Activities</h1>
+              <ul>
+                {this.props.userActivities.map(item => (
+                  <li>
+                    {item.activity.name} - {this.timeConverter(item.created_at)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="home-data">
+              <h1>Strongest Skills</h1>
+              <div>
+                {strongestSkills &&
+                  strongestSkills.map(skillArray => (
+                    <>
+                      <label>{skillArray[0]}</label>
+                      <ProgressBar
+                        animated
+
+                        now={skillArray[1]}
+                        max={1500}
+                        className={this.chooseColor(skillArray[0])}
+                      />
+                      <br />
+                    </>
+                  ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

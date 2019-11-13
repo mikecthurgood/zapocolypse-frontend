@@ -13,9 +13,11 @@ class MySkills extends React.Component {
 
         return (
             <div className="">
+                <br />
+                <h1>My Skills</h1>
                 <Card.Group>
                     {this.props.mySkills.map(skill =>
-                        <SkillCard key={skill.id} {...skill}/>
+                        <SkillCard key={skill.id} {...skill} />
                     )}
                 </Card.Group>
             </div>

@@ -100,7 +100,7 @@ class App extends React.Component {
     const id = ':id'
 
     return (
-      <div className='main'>
+      <>
         <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} toggleMenu={this.toggleMenu} toggleUserMenu={this.toggleUserMenu} />
         <div className='menus'>
           {this.state.user && <MainMenuSlider menuVisible={this.state.menuVisible} hideMenu={this.hideMenu} />}
@@ -121,7 +121,7 @@ class App extends React.Component {
             <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
             <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
           </div>}
-      </div>
+      </>
     )
   }
 }
