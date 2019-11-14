@@ -85,6 +85,8 @@ class NewActivityForm extends React.Component {
         API.newActivity({activity: this.state.activity})
         .then(data => {
             if (data.error) throw Error(data.error);
+            
+            this.props.setUser(data)
 
             this.setState({
                 visible: false,

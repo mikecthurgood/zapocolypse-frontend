@@ -4,7 +4,7 @@ import API from '../helpers/API';
 import RadarChart from "react-svg-radar-chart";
 import NewActivityForm from './NewActivityForm'
 import "./data.css";
-
+import {isEmpty} from '../helpers/utils'
 
 class Profile extends React.Component {
     state = {
@@ -28,7 +28,7 @@ class Profile extends React.Component {
 
     getData = skillClassZ => {
 
-        if (!skillClassZ || skillClassZ.isEmpty()) {
+        if (!skillClassZ || isEmpty(skillClassZ)) {
             const nilData = [
                 {
                     data: {
@@ -70,7 +70,7 @@ class Profile extends React.Component {
                         />
                     </div>
                     <div className='new-activity-form'>
-                        <NewActivityForm />
+                        <NewActivityForm setUser={this.props.setUser}/>
                     </div>
                 </div>
                 <div className='profile-skills-container'>

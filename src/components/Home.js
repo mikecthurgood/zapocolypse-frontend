@@ -6,6 +6,7 @@ import { Grid } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import "./data.css";
+import {isEmpty} from '../helpers/utils'
 
 class Home extends React.Component {
   state = {
@@ -67,7 +68,7 @@ class Home extends React.Component {
   };
 
   getData = skillClassZ => {
-    if (!skillClassZ || skillClassZ.isEmpty()) {
+    if (!skillClassZ || isEmpty(skillClassZ)) {
       const nilData = [
         {
           data: {
@@ -173,7 +174,7 @@ class Home extends React.Component {
               captions={captions}
               data={this.getData(this.state.data)}
               size={450}
-              options={options}
+              options={{scales: 6}}
             />
 
             <div className="home-data">
@@ -212,35 +213,5 @@ class Home extends React.Component {
   }
 }
 
-// const data = [
-//   {
-//     data: {
-//       survival: 0.7,
-//       combat: 0.8,
-//       fitness: 0.9,
-//       crafting: 0.67,
-//       engineering: 0.8,
-//       driving: 0.6,
-//       medical: 0.1
-//     },
-//     meta: { color: "green" }
-//   },
-//   {
-//     data: {
-//       survival: 0.6,
-//       combat: 0.85,
-//       fitness: 0.5,
-//       crafting: 0.6,
-//       engineering: 0.7,
-//       driving: 0.3,
-//       medical: 0.3
-//     },
-//     meta: { color: "red" }
-//   }
-// ];
-
-const options = {
-  scales: 6
-};
 
 export default Home;
