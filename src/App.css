@@ -223,13 +223,13 @@ div.cards {
 .to-white{
   color: azure;
 }
-
+/* 
 .progress-chart{
   text-align: right;
   padding: 1%;
   height: 25%;
   width: 25%;
-}
+} */
 
 .menus {
 }
@@ -616,7 +616,7 @@ svg {
   position: absolute;
   left: 35%;
   top: 5%;
-
+}
 .activities-filter{
   width: 20%;
   margin-bottom: 1rem;
