@@ -4,15 +4,7 @@ import SkillCard from './SkillCard'
 import ActivityCard from './ActivityCard'
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
-//checks for empty object
-Object.prototype.isEmpty = function() {
-    for(const key in this) {
-        if(this.hasOwnProperty(key))
-            return false;
-    }
-    return true;
-}
+import {isEmpty} from '../helpers/utils'
 
 class SkillsPage extends React.Component {
 
@@ -50,7 +42,7 @@ class SkillsPage extends React.Component {
     }
 
     showProgressBar = (zaps, skill) => {
-        if (!zaps.isEmpty()) {
+        if (!isEmpty(zaps)) {
             return (
                 <CircularProgressbarWithChildren value={zaps[skill.name]}>
                     <div className='inside-progress-bar'>

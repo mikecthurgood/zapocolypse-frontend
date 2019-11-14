@@ -23,7 +23,6 @@ class App extends React.Component {
     userSkills: [],
     userActivities: [],
     userSkillZaps: [],
-    selectedActivity: {},
     menuVisible: false,
     userMenuVisible: false
   }
@@ -88,10 +87,6 @@ class App extends React.Component {
     return Object.values(this.state.userSkillZaps).reduce((a, b) => a + b, 0)
   }
 
-  setActivity = (activityId) => {
-    return API.getActivity(activityId).then(data => this.setState({ selectedActivity: data }))
-  }
-
   setUser = (user) => this.setState({ userActivities: user.user.user_activities })
 
 
@@ -113,8 +108,8 @@ class App extends React.Component {
           <Route path={`/skills/${id}`} render={(routerProps) => <SkillsPage {...routerProps} />} />
           <Route exact path="/skills" render={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/myskills" render={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
-          <Route path="/myactivities" render={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
-          <Route path="/profile" render={(routerProps) => <Profile {...routerProps} logIn={logIn} userActivities={this.state.userActivities} userSkills={this.state.userSkills} />} />
+          <Route path="/myactivities" component={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
+          <Route path="/profile" render={(routerProps) => <Profile {...routerProps} logIn={logIn} userActivities={this.state.userActivities} userSkills={this.state.userSkills} setUser={this.setUser}/>} />
           <Route path="/my-account" render={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} />} />
         </div> :
           <div className="login-pages">

@@ -7,7 +7,6 @@ class NewActivityForm extends React.Component {
 
     state = {
         visible: false,
-        size: 'lg',
         skills: [],
         rawSkills: [],
         activity: {
@@ -81,8 +80,26 @@ class NewActivityForm extends React.Component {
     }
 
     addActivity = () => {
-        console.log(this.state.activity)
-        // API.newActivity(this.state.activity)
+        // console.log(this.state.activity)
+
+        API.newActivity({activity: this.state.activity})
+        .then(data => {
+            if (data.error) throw Error(data.error);
+            
+            this.props.setUser(data)
+
+            this.setState({
+                visible: false,
+                activity: {
+                    name: "",
+                    skills: [],
+                    description: ""
+                }
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     addActivityName = (e) => {
