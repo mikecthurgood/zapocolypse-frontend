@@ -177,7 +177,7 @@ class Home extends React.Component {
                     captions={captions}
                     data={this.getData(this.state.data)}
                     // size={450}
-                    options={options}
+                    options={{scales: 6}}
                   />
                 </Card>
 
