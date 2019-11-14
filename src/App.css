@@ -3,6 +3,20 @@
   min-height: 100vh;
 }
 
+.zapocalypse {
+  position: absolute;
+  top: 15%;
+  left: 45%;
+  /* display: flex; */
+  /* flex-direction: row; */
+  color: white
+
+}
+
+.title {
+  font-size: xx-large;
+}
+
 
 h1 {
   color: white
@@ -43,6 +57,9 @@ h4 {
   font-size: 1.3rem;
   z-index: 100;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center; 
+  flex-direction: row;
 }
 
 
@@ -88,8 +105,9 @@ h4 {
 
 .links {
   display: inline;
-  justify-content: space-between;
+  justify-content: space-evenly;
   box-sizing: border-box;
+
 }
 
 
@@ -199,18 +217,6 @@ div.cards {
   width: 60%;
 }
 
-.home-data {
-  padding: 2%;
-  text-align: left;
-  color: azure;
-  background-color: black;
-  opacity: 70%;
-  border-radius: 5%;
-  height: 40%;
-  margin: 2%;
-  overflow: hidden;
-
-}
 
 .to-white{
   color: azure;
@@ -285,7 +291,7 @@ Button.menu-button:hover {
   padding-top: 15px;
   top: 0;
   right: 0;
-  margin-top: 3%;
+  margin-top: 60px;
   transition: transform .3s
               cubic-bezier(0, .52, 0, 1);
   overflow: scroll;
@@ -532,14 +538,62 @@ margin-right: 5%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
+  min-height: 110vh;
 }
 
 .home-page-header {
-  min-height: 10vh;
+  min-height: 4vh;
   width: 100vw;
 }
 
 .home-page-data {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+}
 
+.homepage-radal {
+  min-width: fit-content !important;
+  background-color: black !important;
+  padding: 1rem !important;
+  /* width: 100% !important; */
+
+}
+
+.homepage-recent {
+  width: fit-content !important;
+  background-color: black !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-top: 0 !important;
+  color: azure;
+  height: 100% !important;
+  /* list-style-type: circle; */
+
+}
+
+.home-data-top {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 100%;
+}
+
+
+.home-data {
+  padding: 2% !important;
+  text-align: left !important;
+  color: azure !important;
+  background-color: black !important;
+  opacity: 70% !important;
+  width: 100% !important;
+  /* overflow: hidden; */
+
+}
+
+svg {
+  width: 100% !important;
+  min-width: 500px !important;
 }

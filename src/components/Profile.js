@@ -70,6 +70,7 @@ class Profile extends React.Component {
                         />
                     </div>
                     <div className='new-activity-form'>
+                        <br />
                         <NewActivityForm />
                     </div>
                 </div>

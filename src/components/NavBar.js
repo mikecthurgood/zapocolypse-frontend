@@ -4,6 +4,9 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = (props) =>
     <div className="navbar">
+        <div className='zapocalypse'>
+            <h1>ZAPOCALYPSE</h1>
+        </div>
         {props.user ?
 
             <div className="links">
@@ -37,7 +40,9 @@ const NavBar = (props) =>
                         }}
                     >Create Account</NavLink>
                 </div>
+
             </div>
+
         }
     </div >
 

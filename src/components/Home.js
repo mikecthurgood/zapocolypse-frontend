@@ -2,7 +2,7 @@ import React from "react";
 import captions from "../helpers/chartCaptions";
 import API from "../helpers/API";
 import RadarChart from "react-svg-radar-chart";
-import { Grid } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import "./data.css";
@@ -167,44 +167,56 @@ class Home extends React.Component {
           <div className='home-page-header'>
           </div>
           <h1>Slayer Stats</h1>
+          <br />
           <div className='home-page-data'>
 
-            <RadarChart
-              captions={captions}
-              data={this.getData(this.state.data)}
-              size={450}
-              options={options}
-            />
 
-            <div className="home-data">
-              <h1>Recent Activities</h1>
-              <ul>
-                {this.props.userActivities.map(item => (
-                  <li>
-                    {item.activity.name} - {this.timeConverter(item.created_at)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="home-data">
-              <h1>Strongest Skills</h1>
-              <div>
-                {strongestSkills &&
-                  strongestSkills.map(skillArray => (
-                    <>
-                      <label>{skillArray[0]}</label>
-                      <ProgressBar
-                        animated
 
-                        now={skillArray[1]}
-                        max={1500}
-                        className={this.chooseColor(skillArray[0])}
-                      />
-                      <br />
-                    </>
+            <Card.Group>
+              <Card.Group>
+                <Card className='homepage-radal'>
+                  <RadarChart
+                    captions={captions}
+                    data={this.getData(this.state.data)}
+                    // size={450}
+                    options={options}
+                  />
+                </Card>
+
+                <Card className="home-data">
+                  <h1>Strongest Skills</h1>
+                  <div>
+                    {strongestSkills &&
+                      strongestSkills.map(skillArray => (
+                        <>
+                          <label>{skillArray[0]}</label>
+                          <ProgressBar
+                            animated
+
+                            now={skillArray[1]}
+                            max={1500}
+                            className={this.chooseColor(skillArray[0])}
+                          />
+                          <br />
+                        </>
+                      ))}
+                  </div>
+                </Card>
+              </Card.Group>
+              <Card className='homepage-recent'>
+                <h1>Recent Activities</h1>
+                <ul>
+                  {this.props.userActivities.map(item => (
+                    <li>
+                      {item.activity.name} - {this.timeConverter(item.created_at)}
+                    </li>
                   ))}
-              </div>
-            </div>
+                </ul>
+              </Card>
+            </Card.Group>
+
+
+
           </div>
         </div>
       </div>
