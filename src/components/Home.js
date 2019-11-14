@@ -6,7 +6,7 @@ import { Card } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import "./data.css";
-import {isEmpty} from '../helpers/utils'
+import { isEmpty } from '../helpers/utils'
 
 class Home extends React.Component {
   state = {
@@ -170,37 +170,38 @@ class Home extends React.Component {
           <h1>Slayer Stats</h1>
           <br />
           <div className='home-page-data'>
-            <Card.Group>
-              <Card.Group>
-                <Card className='homepage-radal'>
-                  <RadarChart
-                    captions={captions}
-                    data={this.getData(this.state.data)}
-                    // size={450}
-                    options={{scales: 6}}
-                  />
-                </Card>
+            <div className='radal-and-skills'>
+              <Card className='homepage-radal'>
+                <RadarChart
+                  captions={captions}
+                  data={this.getData(this.state.data)}
+                  // size={450}
+                  options={{ scales: 6 }}
+                />
+              </Card>
 
-                <Card className="home-data">
-                  <h1>Strongest Skills</h1>
-                  <div>
-                    {strongestSkills &&
-                      strongestSkills.map(skillArray => (
-                        <>
-                          <label>{skillArray[0]}</label>
-                          <ProgressBar
-                            animated
+              <Card className="home-data">
+                <h1>Strongest Skills</h1>
+                <div>
+                  {strongestSkills &&
+                    strongestSkills.map(skillArray => (
+                      <>
+                        <label>{skillArray[0]}</label>
+                        <ProgressBar
+                          animated
 
-                            now={skillArray[1]}
-                            max={1500}
-                            className={this.chooseColor(skillArray[0])}
-                          />
-                          <br />
-                        </>
-                      ))}
-                  </div>
-                </Card>
-              </Card.Group>
+                          now={skillArray[1]}
+                          max={1500}
+                          className={this.chooseColor(skillArray[0])}
+                        />
+                        <br />
+                      </>
+                    ))}
+                </div>
+              </Card>
+            </div>
+            <div>
+
               <Card className='homepage-recent'>
                 <h1>Recent Activities</h1>
                 <ul>
@@ -211,7 +212,21 @@ class Home extends React.Component {
                   ))}
                 </ul>
               </Card>
-            </Card.Group>
+            </div>
+            <div>
+              <Card className='homepage-recent'>
+                <h1>Upcoming Activities</h1>
+                <ul>
+
+                  <li>Some shit</li>
+                  <li>Some more shit</li>
+                  <li>Even more shit</li>
+                  <li>Some crazy ass shit</li>
+                  <li>Some more amazing shit</li>
+
+                </ul>
+              </Card>
+            </div>
 
 
 
