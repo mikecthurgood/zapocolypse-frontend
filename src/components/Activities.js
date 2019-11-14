@@ -49,13 +49,13 @@ class Activities extends React.Component {
                 value: filter,
             }
         ))
-        console.log(this.filteredActivities())
+
         return (
             <div><br /><br />
-                
-               
+
+
                 <h1>Activities</h1>
-                
+
                 <div className='custom-activity'><h3>Completed an activity we don't have listed? Create a <Link to='/profile'>Custom Activity</Link> in your profile.</h3></div>
 
                 <h4>Filter Activities</h4>
@@ -66,7 +66,7 @@ class Activities extends React.Component {
                         options={options}
                         placeholder='All'
                     />
-                  
+
                 </Form>
 
                 <Card.Group>
