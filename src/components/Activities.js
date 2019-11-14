@@ -36,7 +36,9 @@ class Activities extends React.Component {
     }
 
     filteredActivities = () => {
-        this.state.allActivities.filter(a => a.skills.map(s => s.skill_class.name).flat.includes(this.state.filterType))
+        if (this.state.filterType === 'All') return this.state.allActivities
+
+        return this.state.allActivities.filter(a=> a.skills.map(skill=> skill.skill_class.name).includes(this.state.filterType))
     }
 
     render() {
@@ -62,12 +64,13 @@ class Activities extends React.Component {
                         fluid
                         onChange={this.handleChange}
                         options={options}
+                        placeholder='All'
                     />
 
                 </Form>
 
                 <Card.Group>
-                    {this.state.allActivities.map(activity =>
+                    {this.filteredActivities().map(activity =>
                         // console.log(activity)
                         < ActivityCard key={activity.id} {...activity} />
                     )}
