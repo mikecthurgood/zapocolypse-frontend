@@ -36,7 +36,7 @@ class Activities extends React.Component {
     }
 
     filteredActivities = () => {
-        this.state.allActivities.filter(a => a.skills.map(s=> s.skill_class.name).flat.includes(this.state.filterType))
+        this.state.allActivities.filter(a => a.skills.map(s => s.skill_class.name).flat.includes(this.state.filterType))
     }
 
     render() {
@@ -47,14 +47,13 @@ class Activities extends React.Component {
                 value: filter,
             }
         ))
-        debugger
-        
+
         return (
             <div><br /><br />
-                
-               
+
+
                 <h1>Activities</h1>
-                
+
                 <div className='custom-activity'><h3>Completed an activity we don't have listed? Create a <Link to='/profile'>Custom Activity</Link> in your profile.</h3></div>
 
                 <h4>Filter Activities</h4>
@@ -64,7 +63,7 @@ class Activities extends React.Component {
                         onChange={this.handleChange}
                         options={options}
                     />
-                  
+
                 </Form>
 
                 <Card.Group>
