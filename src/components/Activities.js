@@ -28,6 +28,16 @@ class Activities extends React.Component {
             })
     }
 
+    handleChange = (e) => {
+
+        this.setState({
+            filterType: e.target.innerText
+        })
+    }
+
+    filteredActivities = () => {
+        this.state.allActivities.filter(a => a.skills.map(s=> s.skill_class.name).flat.includes(this.state.filterType))
+    }
 
     render() {
         const options = FilterTypes.filters().map(filter => (
@@ -37,6 +47,7 @@ class Activities extends React.Component {
                 value: filter,
             }
         ))
+        debugger
         
         return (
             <div><br /><br />
@@ -50,7 +61,7 @@ class Activities extends React.Component {
                 <Form className='activities-filter'>
                     <Form.Select
                         fluid
-                        onChange={console.log('cool')}
+                        onChange={this.handleChange}
                         options={options}
                     />
                   
