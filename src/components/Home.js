@@ -201,6 +201,7 @@ class Home extends React.Component {
               </Card>
             </div>
             <div>
+
               <Card className='homepage-recent'>
                 <h1>Recent Activities</h1>
                 <ul>
