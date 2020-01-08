@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import "./data.css";
 import { isEmpty } from '../helpers/utils'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   state = {
@@ -204,13 +205,12 @@ class Home extends React.Component {
 
               <Card className='homepage-recent'>
                 <h1>Recent Activities</h1>
-                <ul>
-                  {this.props.userActivities.map(item => (
-                    <li>
-                      {item.activity.name} - {this.timeConverter(item.created_at)}
-                    </li>
-                  ))}
-                </ul>
+                <br /><br />
+                {this.props.userActivities.map(item => (
+                  <p>
+                    <Link to={`/activities/${item.activity.id}`}>{item.activity.name} - {this.timeConverter(item.created_at)}</Link>
+                  </p>
+                ))}
               </Card>
             </div>
             <div>

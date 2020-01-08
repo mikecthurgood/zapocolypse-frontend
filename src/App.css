@@ -150,6 +150,7 @@ a {
   background: url('./Assets/thumb-1920-77515.jpg') bottom center fixed;
   background-repeat: repeat-y;
   background-size: 3600px, 2000px;
+  align-items: center;
 }
 
 .skill-cards {
@@ -363,7 +364,7 @@ Button.menu-button:hover {
 }
 
 .profile-skills-container {
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .new-activity-form {
@@ -402,8 +403,13 @@ margin-right: 5%;
 }
 
 .profile-skill {
+  display: flex;
+  flex-direction: column;
   color: white;
   margin: 10px;
+  width: fit-content;
+  min-width: 220px;
+  align-items: center;
 }
 
 .profile-skills-image {
@@ -555,6 +561,7 @@ margin-right: 5%;
   min-width: fit-content !important;
   background-color: black !important;
   padding: 1rem !important;
+  /* width: 20vw !important; */
   /* width: 100% !important; */
 
 }
@@ -567,9 +574,17 @@ margin-right: 5%;
   margin-top: 0 !important;
   margin-left: 1rem !important;
   color: azure;
-  height: 100% !important;
-  /* list-style-type: circle; */
+  height: 67.5vh !important;
+  overflow: hidden;  /* list-style-type: circle; */
+}
 
+.homepage-recent a {
+  color: white;
+}
+
+.homepage-recent a:hover {
+  color: gold;
+  text-decoration: none;
 }
 
 
@@ -579,7 +594,7 @@ margin-right: 5%;
   color: azure !important;
   background-color: black !important;
   opacity: 70% !important;
-  width: 100% !important;
+  width: 97% !important;
   /* overflow: hidden; */
 
 }
@@ -619,5 +634,10 @@ svg {
   width: 20%;
   margin-bottom: 1rem;
   margin-left: 0.5rem;
+}
 
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

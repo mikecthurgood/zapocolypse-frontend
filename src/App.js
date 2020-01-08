@@ -95,7 +95,8 @@ class App extends React.Component {
     const id = ':id'
 
     return (
-      <>
+      <div className='main'>
+
         <NavBar user={this.state.user} logOut={this.logOut} totalZaps={this.totalZaps()} toggleMenu={this.toggleMenu} toggleUserMenu={this.toggleUserMenu} />
         <div className='menus'>
           {this.state.user && <MainMenuSlider menuVisible={this.state.menuVisible} hideMenu={this.hideMenu} />}
@@ -109,14 +110,15 @@ class App extends React.Component {
           <Route exact path="/skills" render={(routerProps) => <Skills {...routerProps} getSkills={this.getSkills} user={this.state.user} />} />
           <Route path="/myskills" render={(routerProps) => <MySkills {...routerProps} mySkills={this.state.userSkills} user={this.state.user} />} />
           <Route path="/myactivities" component={(routerProps) => <MyActivities {...routerProps} myActivities={this.state.userActivities} user={this.state.user} />} />
-          <Route path="/profile" render={(routerProps) => <Profile {...routerProps} logIn={logIn} userActivities={this.state.userActivities} userSkills={this.state.userSkills} setUser={this.setUser}/>} />
+          <Route path="/profile" render={(routerProps) => <Profile {...routerProps} logIn={logIn} userActivities={this.state.userActivities} userSkills={this.state.userSkills} setUser={this.setUser} />} />
           <Route path="/my-account" render={(routerProps) => <Home {...routerProps} logIn={logIn} userActivities={this.state.userActivities} />} />
         </div> :
           <div className="login-pages">
             <Route path="/login" component={(routerProps) => <LoginForm {...routerProps} logIn={logIn} user={this.state.user} />} />
             <Route path="/create-account" component={(routerProps) => <CreateAccount {...routerProps} logIn={logIn} user={this.state.user} />} />
           </div>}
-      </>
+      </div>
+
     )
   }
 }
